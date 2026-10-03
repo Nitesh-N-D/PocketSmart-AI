@@ -91,6 +91,7 @@ cp .env.example .env           # then fill in GOOGLE_API_KEY and SECRET_KEY
 uvicorn main:app --reload --port 8000
 ```
 
+
 Open **http://127.0.0.1:8000**. Stop with **Ctrl+C**.
 
 > Built and verified against **Python 3.11.9**. If your default Python is newer (e.g. 3.13/3.14) and dependency installs fail building native wheels (`pydantic-core`, `pillow`), create the venv with a 3.11 interpreter instead (e.g. `py -3.11 -m venv venv` on Windows).
