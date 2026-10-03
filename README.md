@@ -128,14 +128,18 @@ pytest tests/ -v
 | GET | `/recommendation-history` | Session | List user's past recommendations |
 | GET | `/recommendation-details/{id}` | Session | Full detail of one recommendation |
 
-## Screenshots
-
-*(Add screenshots of the dashboard, each planner's result view, and the history page here after recording a live demo.)*
 
 ## Team
 
-*(Add team member names here.)*
+This project was developed by:
 
-## License
+| S. No. | Name | Register No. |
+|:------:|------|:------------:|
+| 1 | **Ramanujam P** | 2024503525 |
+| 2 | **Nitesh N D** | 2024503529 |
+| 3 | **Bhuvaneshwar T S** | 2024503565 |
+| 4 | **Tamil Selvan R** | 2024503515 |
+| 5 | **Sachin S** | 2024503037 |
 
-Educational/submission project — no license specified.
+
+
