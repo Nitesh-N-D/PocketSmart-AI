@@ -2,34 +2,34 @@
 
 ```mermaid
 flowchart TD
-    Browser[Browser\nHTML + Vanilla JS]
+    Browser["Browser<br/>HTML + Vanilla JS"]
 
-    subgraph FastAPI App
-        Routes[main.py\nRoutes, Auth Dependencies, Sessions]
-        AuthMod[auth.py\nJWT + bcrypt + Sessions]
-        GeminiMod[gemini_utils.py\nPrompting, JSON extraction,\nShopping-link builder, Fallbacks]
-        Jinja[Jinja2 Templates]
-        Uploads[(static/uploads/\nOutfit Images)]
-        History[(user_recommendations\nin-memory history store)]
+    subgraph App["FastAPI App"]
+        Routes["main.py<br/>Routes, Auth Dependencies, Sessions"]
+        AuthMod["auth.py<br/>JWT + bcrypt + Sessions"]
+        GeminiMod["gemini_utils.py<br/>Prompting, JSON extraction,<br/>Shopping-link builder, Fallbacks"]
+        Jinja["Jinja2 Templates"]
+        Uploads[("static/uploads/<br/>Outfit Images")]
+        History[("user_recommendations<br/>in-memory history store")]
     end
 
-    Gemini[Google Gemini 3.5 Flash-Lite\nvia google-generativeai]
-    Platforms[[Amazon, Flipkart, IKEA, Myntra, Ajio,\nSwiggy, Zomato, BigBasket, BookMyShow,\nOYO, MakeMyTrip, Meesho, Tanishq,\nBlueStone, CaratLane, Melorra, Google,\nBooking.com, NoBroker]]
+    Gemini["Google Gemini 3.5 Flash-Lite<br/>via google-generativeai"]
+    Platforms[["Amazon, Flipkart, IKEA, Myntra, Ajio,<br/>Swiggy, Zomato, BigBasket, BookMyShow,<br/>OYO, MakeMyTrip, Meesho, Tanishq,<br/>BlueStone, CaratLane, Melorra, Google,<br/>Booking.com, NoBroker"]]
 
-    Browser -->|1. Login / Register| Routes
+    Browser -->|"1. Login / Register"| Routes
     Routes --> AuthMod
-    Browser -->|2. Submit planner form\n+ optional image| Routes
-    Routes -->|3. save image| Uploads
-    Routes -->|4. build prompt| GeminiMod
-    GeminiMod -->|5. generate_content()| Gemini
-    Gemini -->|6. JSON text response| GeminiMod
-    GeminiMod -->|7. extract_json_from_response| GeminiMod
-    GeminiMod -->|8. attach shopping_links| GeminiMod
-    GeminiMod -->|9. structured result| Routes
-    Routes -->|10. save_to_history| History
-    Routes -->|11. render| Jinja
-    Jinja -->|12. HTML/JSON| Browser
-    Browser -->|13. click shopping link| Platforms
+    Browser -->|"2. Submit planner form<br/>+ optional image"| Routes
+    Routes -->|"3. save image"| Uploads
+    Routes -->|"4. build prompt"| GeminiMod
+    GeminiMod -->|"5. generate_content()"| Gemini
+    Gemini -->|"6. JSON text response"| GeminiMod
+    GeminiMod -->|"7. extract_json_from_response"| GeminiMod
+    GeminiMod -->|"8. attach shopping_links"| GeminiMod
+    GeminiMod -->|"9. structured result"| Routes
+    Routes -->|"10. save_to_history"| History
+    Routes -->|"11. render"| Jinja
+    Jinja -->|"12. HTML/JSON"| Browser
+    Browser -->|"13. click shopping link"| Platforms
 ```
 
 ## Component responsibilities
